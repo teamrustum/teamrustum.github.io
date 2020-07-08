@@ -1,23 +1,6 @@
-// for typewriter effect
-let j=0,text = 'A technical society for electrical engineers.';
-let motto = document.querySelector('.c1title p');
-function typing(){
-    if(j<text.length){
-        motto.innerHTML += text.charAt(j);
-        j++;
-    }
-    setTimeout(typing,100);   
+const news = function(){
+    fetch('http://newsapi.org/v2/top-headlines?country=us&apiKey=ceeb11c85e7547efbfa08bead2590516')
+    .then(res=>res.json())
+    .then(Data=>console.log(data.status))
 }
-typing();
-
-let title = document.querySelectorAll('.c1heading');
-let title_text = 'Team Rustum';
-let i =0;
-function display(){
-    if(i<title.length){
-        title[i].innerHTML = title_text.charAt(i);
-        i++;
-    }
-    setTimeout(display,600);
-}
-display();
+news()
